@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "nfttemplatevideo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.3.0",
+    "framer-motion": "^7.2.1",
+    "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.2",
     "react-icons": "^4.4.0"
-  },
-  "devDependencies": {}
+  }
 }

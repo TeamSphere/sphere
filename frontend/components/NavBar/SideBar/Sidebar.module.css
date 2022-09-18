@@ -17,8 +17,8 @@
     transform:  rotate(45deg);
 }
 
-.sideBar_box p {
-    margin-top:  0;
+.sideBar_box p{
+    margin-top:  -2rem;
 }
 
 .sideBar_social{
