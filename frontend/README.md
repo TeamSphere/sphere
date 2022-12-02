@@ -1,1 +1,0 @@
-The Sphere NFT Marketplace
