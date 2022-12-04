@@ -1,71 +1,91 @@
-import Head from 'next/head'
-import Header from '../components/Header'
-import Hero from '../components/Hero'
-import { useWeb3 } from '@3rdweb/hooks'
-import { useEffect } from 'react'
-import { client } from '../lib/sanityClient'
-import toast, { Toaster } from 'react-hot-toast'
+import React, { useState, useEffect, useContext } from "react";
 
-const style = {
-  wrapper: ``,
-  walletConnectWrapper: `flex flex-col justify-center items-center h-screen w-screen bg-[#3b3d42] `,
-  button: `border border-[#282b2f] bg-[#2081e2] p-[0.8rem] text-xl font-semibold rounded-lg cursor-pointer text-black`,
-  details: `text-lg text-center text=[#282b2f] font-semibold mt-4`,
-}
+//INTERNAL IMPORT
+import Style from "../styles/index.module.css";
+import {
+  HeroSection,
+  Service,
+  BigNFTSilder,
+  Subscribe,
+  Title,
+  Category,
+  Filter,
+  NFTCard,
+  Collection,
+  AudioLive,
+  FollowerTab,
+  Slider,
+  Brand,
+  Video,
+  Loader,
+} from "../components/componentsindex";
+import { getTopCreators } from "../TopCreators/TopCreators";
 
-export default function Home() {
-  const { address, connectWallet } = useWeb3()
+//IMPORTING CONTRCT DATA
+import { NFTMarketplaceContext } from "../Context/NFTMarketplaceContext";
 
-  const welcomeUser = (userName, toastHandler = toast) => {
-    toastHandler.success(
-      `Welcome back${userName !== 'Unnamed' ? ` ${userName}` : ''}!`,
-      {
-        style: {
-          background: '#04111d',
-          color: '#fff',
-        },
-      }
-    )
-  }
+const Home = () => {
+  const { checkIfWalletConnected, currentAccount } = useContext(
+    NFTMarketplaceContext
+  );
+  useEffect(() => {
+    checkIfWalletConnected();
+  }, []);
+
+  const { fetchNFTs } = useContext(NFTMarketplaceContext);
+  const [nfts, setNfts] = useState([]);
+  const [nftsCopy, setNftsCopy] = useState([]);
 
   useEffect(() => {
-    if (!address) return
-    ;(async () => {
-      const userDoc = {
-        _type: 'users',
-        _id: address,
-        userName: 'Unnamed',
-        walletAddress: address,
-      }
+    if (currentAccount) {
+      fetchNFTs().then((items) => {
+        setNfts(items.reverse());
+        setNftsCopy(items);
+        console.log(nfts);
+      });
+    }
+  }, []);
 
-      const result = await client.createIfNotExists(userDoc)
+  //CREATOR LIST
 
-      welcomeUser(result.userName)
-    })()
-  }, [address])
+  const creators = getTopCreators(nfts);
+  // console.log(creators);
 
   return (
-    <div className={style.wrapper}>
-      <Toaster position="top-center" reverseOrder={false} />
-      {address ? (
-        <>
-          <Header />
-          <Hero />
-        </>
+    <div className={Style.homePage}>
+      <HeroSection />
+      <Service />
+      <BigNFTSilder />
+      <Title
+        heading="Audio Collection"
+        paragraph="Discover the most outstanding NFTs in all topics of life."
+      />
+      <AudioLive />
+      {creators.length == 0 ? (
+        <Loader />
       ) : (
-        <div className={style.walletConnectWrapper}>
-          <button
-            className={style.button}
-            onClick={() => connectWallet('injected')}
-          >
-            Connect Wallet
-          </button>
-          <div className={style.details}>
-            You need Chrome to be
-            <br /> able to run this app.
-          </div>
-        </div>
+        <FollowerTab TopCreator={creators} />
       )}
+
+      <Slider />
+      <Collection />
+      <Title
+        heading="Featured NFTs"
+        paragraph="Discover the most outstanding NFTs in all topics of life."
+      />
+      <Filter />
+      {nfts.length == 0 ? <Loader /> : <NFTCard NFTData={nfts} />}
+
+      <Title
+        heading="Browse by category"
+        paragraph="Explore the NFTs in the most featured categories."
+      />
+      <Category />
+      <Subscribe />
+      <Brand />
+      <Video />
     </div>
-  )
-}
+  );
+};
+
+export default Home;

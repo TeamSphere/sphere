@@ -1,24 +1,17 @@
-import '../styles/globals.css'
-import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
+import "../styles/globals.css";
 
-/**
- * The chain ID 4 represents the Rinkeby network
- * The `injected` connector is a web3 connection method used by Metamask
- */
-const supportedChainIds = [4]
-const connectors = {
-  injected: {},
-}
+//INTRNAL IMPORT
+import { NavBar, Footer } from "../components/componentsindex";
+import { NFTMarketplaceProvider } from "../Context/NFTMarketplaceContext";
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <ThirdwebWeb3Provider
-      supportedChainIds={supportedChainIds}
-      connectors={connectors}
-    >
+const MyApp = ({ Component, pageProps }) => (
+  <div>
+    <NFTMarketplaceProvider>
+      <NavBar />
       <Component {...pageProps} />
-    </ThirdwebWeb3Provider>
-  )
-}
+      <Footer />
+    </NFTMarketplaceProvider>
+  </div>
+);
 
-export default MyApp
+export default MyApp;
