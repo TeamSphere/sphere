@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">Reservoir Market</h3>
+  <p align="center">
+An open source NFT marketplace built on Reservoir.
 
-## Available Scripts
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-In the project directory, you can run:
 
-### `yarn start`
+Reservoir Market is an open source marketplace that enables communities to easily launch their own NFT marketplace, accessing instant liquidity aggregated from other major marketplaces.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The marketplace supports 3 different modes:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+-  Single collection (e.g.  [Crypto Coven](https://cryptocoven.reservoir.market/))
+-  Multi collection community (e.g.  [BAYC](https://bayc.reservoir.market/))
+-  All collections ([example](https://www.reservoir.market/))
+  
+With each deployment, communities are given full control over their marketplace from designing their look and feel to setting their own marketplace fees.
 
-### `yarn test`
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- GETTING STARTED -->
+## Getting Started (Self-Hosted)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Prerequisites
+1. Install [Node.js and NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+2. Install [Yarn](https://classic.yarnpkg.com/en/docs/install)
+3. Request free [Reservoir API key](https://api.reservoir.tools/#/0.%20Auth/postApikeys)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built With
 
-### `yarn eject`
+* [ReservoirKit](https://docs.reservoir.tools/docs/reservoir-kit)
+* [Reservoir Protocol and API](https://reservoirprotocol.github.io/)
+* [Next.js](https://nextjs.org/)
+* [React.js](https://reactjs.org/)
+* [Ethers.io](https://ethers.io/)
+* [WAGMI](https://wagmi.sh/)
+* [Tailwind CSS](https://tailwindcss.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Fork this repo and follow these instructions to install dependancies.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+With yarn:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+$ yarn install
+```
 
-## Learn More
+With NPM:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Configuration
+Reservoir Market is built to be fully configurable using environment variables. To preview your configuration locally you can copy the values you want to use from  `env.development`  or  `env.production`  into a new file called  `.env.local`.
 
-### Code Splitting
+Note: Environment variables can also be added during deployment via deployment platforms like [vercel](https://vercel.com/).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+**Required Environment Variables**
+| Environment Variable           | Required | Description                                                                         | Example              |
+|--------------------------------|----------|-------------------------------------------------------------------------------------|---------------------|
+| NEXT_PUBLIC_RESERVOIR_API_BASE | `true`   | The Reservoir API base URL. Available on Mainnet, Rinkeby, Goerli, and Optimism.                       | https://api-rinkeby.reservoir.tools/ https://api.reservoir.tools/ |
+| NEXT_PUBLIC_CHAIN_ID           | `true`   | The Ethereum network to be used. 1 for Etherem Mainnet and 4 for Rinkeby Testnet, etc.   | 1 4                                                               |
+| NEXT_PUBLIC_PROXY_API_BASE     | `true`   | The proxy API used to pass the Reservoir API key without exposing it to the client. | /api/reservoir                                                    |
+| NEXT_PUBLIC_RESERVOIR_API_KEY              | `true`   | Reservoir API key provided by the Reservoir Protocol. [Get your own API key](https://api.reservoir.tools/#/0.%20Auth/postApikeys).         | 123e4567-e89b-12d3-a456-426614174000                              |
+| NEXT_PUBLIC_ALCHEMY_ID              | `true`   | Alchemy API key required for buying items on mobile. [Get your own API key here](https://docs.alchemy.com/alchemy/introduction/getting-started#1.create-an-alchemy-key).         | 123e4567-e89b-12d3-a456-426614174000                              |
 
-### Analyzing the Bundle Size
+Please visit [our docs](https://docs.reservoir.tools/docs/marketplace-getting-started#configuration) to view all supported environment variables.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Run the App
 
-### Making a Progressive Web App
+Once you have your setup ready, run:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+With yarn:
 
-### Advanced Configuration
+    $ yarn dev
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+With npm:
 
-### Deployment
+    $ npm run dev
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Deploy with Vercel
 
-### `yarn build` fails to minify
+This is a Next.js app that can be easily deployed using  [Vercel](https://vercel.com/). For  more information on how to deploy your Github repository with Vercel visit their [docs](https://vercel.com/docs/concepts/projects/overview).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Contributing -->
+## Contributing
+
+If you'd like to contribute please follow the [guidelines](https://github.com/reservoirprotocol/marketplace/blob/main/CONTRIBUTING.md).
+
+<!-- CONTACT -->
+## Contact
+
+Twitter: [@reservoir0x](https://twitter.com/reservoir0x)
+Discord: [Reservoir](https://discord.gg/j5K9fESNwh)
+Project Link: [Reservoir](https://reservoirprotocol.github.io/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
