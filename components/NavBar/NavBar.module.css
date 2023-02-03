@@ -29,9 +29,10 @@
 }
 
 .NavBar_box_middle {
-    background-color: #1e1e1e;
+    background-color: transparent;
     width: 80%;
-    padding: 1rem 1.5rem;
+    border: 1px solid #1e1e1e;
+    padding: 0.8rem 1rem;
     border-radius: 0.5rem;
     margin: 0 auto;
 }
@@ -49,7 +50,11 @@
     outline: none;
     border: none;
     font-size: 1rem;
-    color: white;
+    color: #1e1e1e;
+}
+
+.NavBar_box_middle input::placeholder {
+    color: #6e6e6e;
 }
 
 .NavBar_box_right {

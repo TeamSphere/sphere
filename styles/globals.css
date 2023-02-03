@@ -4,9 +4,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-
-  
-  background-color: #FFFFFF;
   color: #1F242E;
   font-family: 'Roboto', sans-serif;
 
@@ -20,6 +17,7 @@ a {
 
 * {
   box-sizing: border-box;
+  
 }
 
 @media (prefers-color-scheme: light) {
@@ -28,6 +26,51 @@ a {
   }
   body {
     color: white;
-    background: black;
+  }
+}
+
+#myThreeJsCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  
+}
+
+.main { 
+  background-color: transparent;
+}
+.main h1 {
+  padding: 10px 20px;
+  margin-left: 50px;
+  transform: translateX(-100px);
+  font-size: 4rem;
+  text-align: left;
+  transform: translateY(320px);
+}
+
+.pretitle {
+  position: absolute;
+  margin-left: 72px;
+  text-align: left;
+  transform: translateY(310px);
+  font-size: 18px;
+}
+
+.highlight {
+  color: #fb8c00;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 35em) {
+  .main h1 { 
+    color: white;
+  }
+  .highlight { 
+    color: white;
+  }
+  .pretitle { 
+    color: white;
   }
 }
