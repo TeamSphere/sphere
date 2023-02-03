@@ -40,22 +40,24 @@ a {
 
 .main { 
   background-color: transparent;
+  display: flex;
+  min-height: 80vh;
+  justify-content: center;
+  flex-direction: column;
 }
 .main h1 {
   padding: 10px 20px;
   margin-left: 50px;
-  transform: translateX(-100px);
   font-size: 4rem;
   text-align: left;
-  transform: translateY(320px);
+  margin-top: 0px;
 }
 
 .pretitle {
-  position: absolute;
-  margin-left: 72px;
   text-align: left;
-  transform: translateY(310px);
   font-size: 18px;
+  text-align: left;
+  margin-left: 70px;
 }
 
 .highlight {

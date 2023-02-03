@@ -85,11 +85,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="main">
+    <>
+      <div className="main">
+        <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
+        <h1>Defi at your <span class="highlight">fingertips.</span></h1>
+      </div>
       <canvas id="myThreeJsCanvas" />
-      <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
-      <h1>Defi at your <span class="highlight">fingertips.</span></h1>
-    </div>
+    </>
   )
 }
 
