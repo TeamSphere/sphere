@@ -44,6 +44,7 @@ a {
   min-height: 80vh;
   justify-content: center;
   flex-direction: column;
+  color: white;
 }
 .main h1 {
   padding: 10px 20px;

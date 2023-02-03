@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0xffffff );
+    scene.background = new THREE.Color( 0x000000);
 
 
     // Create our sphere
@@ -18,6 +18,27 @@ const Home = () => {
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh)
 
+    const starGeometry = new THREE.BufferGeometry();
+    const starMaterial = new THREE.PointsMaterial({
+      color: 0xffffff
+    });
+
+    const starVertices = []
+    for (let i=0; i < 10000; i++) {
+      const x = (Math.random() - 0.5) * 2000
+      const y = (Math.random() - 0.5) * 2000
+      const z = -Math.random() * 1000
+      starVertices.push(x, y, z)
+    }
+
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3))
+
+    const stars = new THREE.Points(
+      starGeometry, starMaterial
+    )
+    
+    scene.add(stars)
+
     //Sizes
     const sizes = {
       width: window.innerWidth,
@@ -27,10 +48,10 @@ const Home = () => {
     const camera = new THREE.PerspectiveCamera(
       25,
       sizes.width / sizes.height,
-      0.1,
-      1000
+      5,
+      3000
     );
-    camera.position.z = 20;
+    camera.position.z = 25;
 
  
 
@@ -88,7 +109,7 @@ const Home = () => {
     <>
       <div className="main">
         <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
-        <h1>Defi at your <span class="highlight">fingertips.</span></h1>
+        <h1>The world of defi<br/> at your <span class="highlight">fingertips.</span></h1>
         <div class="bottom">
           <p>© Copyright 2023. All Rights Reserved<br/></p>
         </div>

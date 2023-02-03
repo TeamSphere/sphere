@@ -7,7 +7,7 @@ import close from "./cross.png";
 import etherlogo from "./etherlogo.png";
 import homeicon from "./homeicon.png";
 import lock from "./lock.png";
-import sphere from "./sphere.png";
+import sphere from "./sphere.svg";
 
 export default {
   uniswap,
