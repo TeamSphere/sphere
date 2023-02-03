@@ -298,11 +298,11 @@ const Home = () => {
         <span className="betatag"><p>Test Network Only</p></span>
         <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
         <h1>The world of defi<br/> at your <span class="highlight">fingertips.</span></h1>
-        <div className="whitelist">
+        {/* <div className="whitelist">
           <p className="join">Join the NFT collection whitelist</p>
           <p className="already-joined"><span className="number-joined">{numberOfWhitelisted}</span> have already joined</p>
           {renderButton()}
-        </div>
+        </div> */}
         
         <div class="bottom">
           <p>© Copyright 2023. All Rights Reserved<br/></p>
