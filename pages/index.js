@@ -89,6 +89,10 @@ const Home = () => {
       <div className="main">
         <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
         <h1>Defi at your <span class="highlight">fingertips.</span></h1>
+        <div class="bottom">
+          <p>© Copyright 2023. All Rights Reserved<br/></p>
+        </div>
+        <a className="bottom-github" href="https://github.com/TeamSphere/sphere">Made with ❤️ by Team Sphere - View on Github</a>
       </div>
       <canvas id="myThreeJsCanvas" />
     </>
