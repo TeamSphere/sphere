@@ -108,6 +108,7 @@ const Home = () => {
   return (
     <>
       <div className="main">
+        <span className="betatag"><p>Test Network Only</p></span>
         <span className="pretitle">Welcome to the <strong>Sphere</strong></span>
         <h1>The world of defi<br/> at your <span class="highlight">fingertips.</span></h1>
         <div class="bottom">

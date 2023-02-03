@@ -66,6 +66,18 @@ a {
   font-weight: 700;
 }
 
+.betatag p {
+  background-color: green;
+  font-size: 12px;
+  padding: 3px 3px;
+  margin-bottom: 10px;
+  margin-left: 70px;
+  width: 108px;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
 .bottom { 
   font-size: 12px;
   position: absolute;
@@ -99,10 +111,14 @@ a {
   }
   .bottom {
     margin-left: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
   .bottom-github {
     margin-left: 50px;
     left: 0;
+  }
+
+  .betatag p {
+    margin-left: 50px;
   }
 }
