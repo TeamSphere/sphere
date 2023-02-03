@@ -48,7 +48,7 @@ const NavBar = () => {
                     <input type="text" placeholder="Search Tokens" />
                 </div>
             </div>
-            <div className={Style.NavBar_box_right}>
+            {/* <div className={Style.NavBar_box_right}>
                 <div className={Style.NavBar_box_right_box}>
                     <div className={Style.NavBar_box_right_box_img}>
                         <Image src={images.ether} alt="Network" height={30} width={30} />
@@ -60,7 +60,7 @@ const NavBar = () => {
                 {openModel && (
                     <Model setOpenModel={setOpenModel} connectWallet="Connect" />
                 )}
-            </div>
+            </div> */}
         </div>
 
         {openTokenBox && ( 

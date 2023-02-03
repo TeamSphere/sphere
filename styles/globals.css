@@ -97,6 +97,58 @@ a {
   margin-bottom: 10px;
 }
 
+.whitelist {
+  margin-left: 70px;
+}
+
+.join {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+.already-joined { 
+  font-size: 14px;
+}
+
+.number-joined {
+  color: #fb8c00;
+  font-weight: bold;
+}
+
+.connect-button {
+  border: 1px solid #fb8c00;
+  outline: none;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 18px;
+  background: transparent;
+  color: #fb8c00;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.whitelist-button { 
+  border: 1px solid #fb8c00;
+  outline: none;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 18px;
+  background: transparent;
+  color: #fb8c00;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.whitelist-button:hover {
+  background: #fb8c00;
+  color: white;
+}
+
+.connect-button:hover {
+  background: #fb8c00;
+  color: white;
+}
+
 @media only screen and (max-width: 35em) {
   .main h1 { 
     color: white;
