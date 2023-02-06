@@ -16,7 +16,7 @@ To get started with the Sphere monorepo, you'll need to have a local development
 
 1. Clone the repository:
 
-git clone https://github.com/TeamSphere/sphere/
+> git clone https://github.com/TeamSphere/sphere/
 
 2. Install the dependencies:
 
