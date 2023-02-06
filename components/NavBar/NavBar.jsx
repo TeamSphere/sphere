@@ -7,6 +7,7 @@ import images from '../../assets';
 import { Model, TokenList } from '../index';
 
 const NavBar = () => {
+
     const menuItems = [
         {
             name: "Swap",
@@ -24,6 +25,8 @@ const NavBar = () => {
 
     const [openModel, setOpenModel] = useState(false);
     const [openTokenBox, setOpenTokenBox] = useState(false);
+    const [account, setAccount] = useState(false);
+
 
   return (
     <div className={Style.NavBar}>
@@ -48,19 +51,25 @@ const NavBar = () => {
                     <input type="text" placeholder="Search Tokens" />
                 </div>
             </div>
-            {/* <div className={Style.NavBar_box_right}>
+            <div className={Style.NavBar_box_right}>
                 <div className={Style.NavBar_box_right_box}>
                     <div className={Style.NavBar_box_right_box_img}>
                         <Image src={images.ether} alt="Network" height={30} width={30} />
                     </div>
                     <p>Network Name</p>
                 </div>
-                <button onClick={() => setOpenModel(true)}>Address</button>
+                {account ? (
+                    <button onClick={() => setOpenModel(true)}>Connect</button>
+                ) : (
+                    <button onClick={() => setOpenTokenBox(true)}>0xf8123819dqw7897</button>
+                )}
+
+                
 
                 {openModel && (
                     <Model setOpenModel={setOpenModel} connectWallet="Connect" />
                 )}
-            </div> */}
+            </div>
         </div>
 
         {openTokenBox && ( 

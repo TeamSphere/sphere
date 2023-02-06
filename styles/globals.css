@@ -149,6 +149,12 @@ a {
   color: white;
 }
 
+.swap {
+  margin-right: 70px;
+  right: 0;
+  position: absolute;
+}
+
 @media only screen and (max-width: 35em) {
   .main h1 { 
     color: white;
