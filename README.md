@@ -21,6 +21,7 @@ To get started with the Sphere monorepo, you'll need to have a local development
 2. Install the dependencies:
 
 > cd sphere
+
 > npm install
 
 3. Start the development server:
