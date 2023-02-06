@@ -20,12 +20,12 @@ git clone https://github.com/TeamSphere/sphere/
 
 2. Install the dependencies:
 
-cd sphere
-npm install
+> cd sphere
+> npm install
 
 3. Start the development server:
 
-npm run start
+> npm run start
 
 This will start a local development server that you can use to test and debug the application.
 
