@@ -21,6 +21,10 @@ const NavBar = () => {
             name: "Pools",
             link: "/",
         },
+        {
+            name: "NFT",
+            link: "/",
+        },
     ]
 
     const [openModel, setOpenModel] = useState(false);

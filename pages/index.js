@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color( 0x000000);
+    scene.background = new THREE.Color( 0x000000 );
 
 
     // Create our sphere
