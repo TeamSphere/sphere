@@ -6,7 +6,7 @@ body {
   margin: 0;
   color: #1F242E;
   font-family: 'Roboto', sans-serif;
-
+  background-color: transparent;
 
 }
 
@@ -25,17 +25,15 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: black;
   }
 }
 
-#myThreeJsCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
+.blob {
+  position: absolute !important;
+  min-height: 100vh;
+  min-width: 100vw;
   z-index: -1;
-  overflow: hidden;
-  
 }
 
 .main { 
@@ -44,7 +42,7 @@ a {
   min-height: 80vh;
   justify-content: center;
   flex-direction: column;
-  color: white;
+  color: black;
 }
 .main h1 {
   padding: 10px 20px;
@@ -62,7 +60,7 @@ a {
 }
 
 .highlight {
-  color: #fb8c00;
+  color: black;
   font-weight: 700;
 }
 
