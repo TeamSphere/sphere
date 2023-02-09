@@ -36,12 +36,6 @@ func NewPrivateKeyFromSeed(seed []byte) *PrivateKey {
 	}
 }
 
-func (p *PublicKey) Address() Address {
-	return Address{
-		value: p.key[len(p.key)-addressLen:],
-	}
-}
-
 func GeneratePrivateKey() *PrivateKey {
 	seed := make([]byte, seedLen)
 	_, err := io.ReadFull(rand.Reader, seed)
@@ -75,6 +69,12 @@ func (p *PrivateKey) Public() *PublicKey {
 
 type PublicKey struct {
 	key ed25519.PublicKey
+}
+
+func (p *PublicKey) Address() Address {
+	return Address{
+		value: p.key[len(p.key)-addressLen:],
+	}
 }
 
 func (p *PublicKey) Bytes() []byte {
