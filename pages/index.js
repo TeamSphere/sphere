@@ -12,8 +12,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
 
-import { WHITELIST_CONTRACT_ADDRESS, abi } from "../constants";
-
 const Home = () => {
 
   return (
