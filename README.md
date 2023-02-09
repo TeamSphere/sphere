@@ -2,6 +2,8 @@
 
 Sphere is a decentralized finance (DeFi) platform that provides a suite of applications for managing digital assets and participating in decentralized financial services. This monorepo contains the code for two of Sphere's core applications: a decentralized exchange (DEX) and an NFT marketplace.
 
+[View the docs](https://docs.thesphere.online/#/)
+
 ## Decentralized Exchange (DEX)
 
 Sphere's DEX is a non-custodial exchange that allows users to trade cryptocurrencies and other digital assets without having to entrust their funds to a centralized party. The DEX uses smart contracts to automate the matching and settlement of trades, making it possible to trade in a trustless and secure manner.
