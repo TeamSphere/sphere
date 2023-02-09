@@ -49,6 +49,7 @@ const SearchToken = ({ openToken, tokens, tokenData }) => {
       name: "HEY",
     },
   ];
+  
 
   return (
     <div className={Style.SearchToken}>
