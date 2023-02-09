@@ -2,6 +2,22 @@ syntax = "proto3";
 
 option go_package = "github.com/TeamSphere/sphere/proto";
 
+service Node {
+    rpc Handshake(Version) returns (Version);
+    rpc HandleTransaction(Transaction) returns (Ack);
+}
+
+message Version {
+    string version = 1;
+    int32 height = 2;  
+}
+
+message Ack {}
+
+message None {
+
+}
+
 message Block {
     Header header = 1;
     repeated Transaction transactions = 2;
@@ -22,6 +38,7 @@ message TxInput {
     // The index of the output of the previous transaction we
     // want to spend. 
     uint32 PrevOutIndex = 2;
+
     bytes publicKey = 3;
     bytes signature = 4;
 }
