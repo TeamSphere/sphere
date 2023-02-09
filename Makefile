@@ -2,7 +2,7 @@ build:
 	@go build -o bin/sphere
 
 run: build
-	@./bin/docker
+	@./bin/sphere
 
 test:
 	@go test -v ./...
