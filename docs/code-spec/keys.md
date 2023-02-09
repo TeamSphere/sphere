@@ -1,138 +1,26 @@
 # Keys.go
 
-# Package crypto
+This code defines a package named crypto in the Go programming language. The package contains several imports, including the Go standard library package crypto/ed25519, crypto/rand, encoding/hex, and io, which are used for generating and managing cryptographic keys and signatures, encoding/decoding hexadecimal strings, and input/output operations respectively.
 
-This package provides functions and data structures to generate and use Ed25519 cryptographic keys and signatures.
+The code defines several constants that specify the length of private keys, public keys, seed values, and addresses.
 
-## Imports
+The PrivateKey type is defined with a single field key of type ed25519.PrivateKey. There are several functions associated with the PrivateKey type, including:
 
-The following packages are imported:
+NewPrivateKeyFromString: which creates a new private key from a hexadecimal string.
 
-"crypto/ed25519"
-"crypto/rand"
-"io"
+NewPrivateKeyFromSeed: which creates a new private key from a seed value.
 
-shell
-Copy code
+Address: which returns the address associated with the public key.
 
-## Constants
+GeneratePrivateKey: which generates a new private key.
+Bytes: which returns the byte representation of the private key.
 
-const (
-privKeyLen = 64
-pubKeyLen = 32
-seedLen = 32
-addressLen = 20
-)
+Sign: which creates a digital signature of a given message using the private key.
 
-shell
-Copy code
+Public: which returns the public key associated with the private key.
 
-## Data Structures
+The PublicKey type is defined with a single field key of type ed25519.PublicKey. There is a single function associated with the PublicKey type, Bytes, which returns the byte representation of the public key.
 
-### PrivateKey
+The Signature type is defined with a single field value of type []byte and has two associated functions: Bytes which returns the byte representation of the signature, and Verify which verifies the signature using the specified public key and message.
 
-type PrivateKey struct {
-key ed25519.PrivateKey
-}
-
-css
-Copy code
-
-#### func (p *PublicKey) Address() Address
-
-Returns the address derived from the public key.
-
-func (p *PublicKey) Address() Address {
-return Address {
-value: p.key(len(p.key)-addressLen)
-}
-}
-
-go
-Copy code
-
-#### func GeneratePrivateKey() *PrivateKey
-
-Generates a new private key.
-
-func GeneratePrivateKey() *PrivateKey {
-seed := make([]byte, seedLen)
-_, err := io.ReadFull(rand.Reader, seed)
-if err != nil {
-panic(err)
-}
-return &PrivateKey{
-key: ed25519.NewKeyFromSeed(seed),
-}
-}
-
-scss
-Copy code
-
-#### func (p *PrivateKey) Bytes() []byte
-
-Returns the bytes of the private key.
-
-func (p *PrivateKey) Bytes() []byte {
-return p.key
-}
-
-vbnet
-Copy code
-
-#### func (p *PrivateKey) Sign(msg []byte) *Signature
-
-Signs the given message with the private key and returns the signature.
-
-func (p *PrivateKey) Sign(msg []byte) *Signature {
-return &Signature{
-value: ed25519.Sign(p.key, msg),
-}
-}
-
-
-#### func (p *PrivateKey) Public() *PublicKey
-
-Returns the public key derived from the private key.
-
-func (p *PrivateKey) Public() *PublicKey {
-b := make([]byte, pubKeyLen)
-copy(b, p.key[32:])
-
-return &PublicKey{
-	key: b,
-}
-}
-
-### PublicKey
-
-type PublicKey struct {
-key ed25519.PublicKey
-}
-
-#### func (p *PublicKey) Bytes() []byte
-
-Returns the bytes of the public key.
-
-func (p *PublicKey) Bytes() []byte {
-return p.key
-}
-
-### Signature
-
-type Signature struct {
-value []byte
-}
-
-#### func (s *Signature) Bytes() []byte
-
-Returns the bytes of the signature.
-
-func (s *Signature) Bytes() []byte {
-return s.value
-}
-
-
-#### func (s *Signature) Verify(pubKey *PublicKey, msg []byte) bool
-
-Verifies the signature with the given public key and message. Returns `true
+The Address type is defined with a single field value of type []byte and has two associated functions: Bytes which returns the byte representation of the address, and String which returns the hexadecimal string representation of the address.
