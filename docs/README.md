@@ -1,6 +1,14 @@
 # Sphere Monorepo
 
-Sphere is a decentralized finance (DeFi) platform that provides a suite of applications for managing digital assets and participating in decentralized financial services. This monorepo contains the code for two of Sphere's core applications: a decentralized exchange (DEX) and an NFT marketplace.
+The Sphere is a blockchain-based platform that uses gRPC and Protocol Buffers for communication between nodes. It uses the Sphere protocol to implement the basic functionalities of a blockchain network.
+
+At the core of the platform is the Node struct, which represents a single node in the network. The Node struct implements the proto.NodeServer interface, which defines the Handshake and HandleTransaction methods. The Handshake method is called when another node connects to this node and sends its version information. The HandleTransaction method is called when another node sends a transaction to this node.
+
+The platform also has a util package that provides helper functions for creating random hashes and blocks. The RandomHash function generates a random 32-byte hash using the crypto/rand package. The RandomBlock function creates a block with random header information, including the version, height, previous hash, root hash, and timestamp.
+
+The types package provides functions for signing and verifying transactions, as well as calculating the hash of a transaction. The SignTransaction function signs a transaction using the given private key, and the HashTransaction function calculates the SHA-256 hash of the protobuf representation of a transaction. The VerifyTransaction function verifies the signatures of all inputs in a transaction to ensure that the transaction is valid.
+
+In summary, The Sphere is a blockchain platform that provides basic functionalities for nodes to communicate and process transactions. It uses the Sphere protocol, gRPC, and Protocol Buffers for communication, and includes helper functions for generating random hashes and blocks, as well as signing and verifying transactions.
 
 [View the code specification](code-spec/README.md)
 
