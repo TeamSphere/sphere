@@ -8,11 +8,11 @@ import (
 )
 
 const (
-	privKeyLen   = 64
-	pubKeyLen    = 32
-	signatureLen = 64
-	seedLen      = 32
-	addressLen   = 20
+	PrivKeyLen   = 64
+	PubKeyLen    = 32
+	SignatureLen = 64
+	SeedLen      = 32
+	AddressLen   = 20
 )
 
 type PrivateKey struct {
@@ -28,7 +28,7 @@ func NewPrivateKeyFromString(s string) *PrivateKey {
 }
 
 func NewPrivateKeyFromSeed(seed []byte) *PrivateKey {
-	if len(seed) != seedLen {
+	if len(seed) != SeedLen {
 		panic("invalid seed length, must be 32")
 	}
 
@@ -38,7 +38,7 @@ func NewPrivateKeyFromSeed(seed []byte) *PrivateKey {
 }
 
 func GeneratePrivateKey() *PrivateKey {
-	seed := make([]byte, seedLen)
+	seed := make([]byte, SeedLen)
 	_, err := io.ReadFull(rand.Reader, seed)
 	if err != nil {
 		panic(err)
@@ -60,7 +60,7 @@ func (p *PrivateKey) Sign(msg []byte) *Signature {
 }
 
 func (p *PrivateKey) Public() *PublicKey {
-	b := make([]byte, pubKeyLen)
+	b := make([]byte, PubKeyLen)
 	copy(b, p.key[32:])
 
 	return &PublicKey{
@@ -73,7 +73,7 @@ type PublicKey struct {
 }
 
 func PublicKeyFromBytes(b []byte) *PublicKey {
-	if len(b) != pubKeyLen {
+	if len(b) != PubKeyLen {
 		panic("invalid public key length")
 	}
 	return &PublicKey{
@@ -83,7 +83,7 @@ func PublicKeyFromBytes(b []byte) *PublicKey {
 
 func (p *PublicKey) Address() Address {
 	return Address{
-		value: p.key[len(p.key)-addressLen:],
+		value: p.key[len(p.key)-AddressLen:],
 	}
 }
 
@@ -96,7 +96,7 @@ type Signature struct {
 }
 
 func SignatureFromBytes(b []byte) *Signature {
-	if len(b) != signatureLen {
+	if len(b) != SignatureLen {
 		panic("length of the bytes not equal to 64")
 	}
 	return &Signature{

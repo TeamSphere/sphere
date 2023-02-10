@@ -33,7 +33,7 @@ a {
   position: absolute !important;
   min-height: 100vh;
   min-width: 100vw;
-  z-index: -1;
+  z-index: 1000;
 }
 
 .main { 
