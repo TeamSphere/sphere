@@ -13,6 +13,7 @@ import (
 )
 
 func main() {
+
 	makeNode(":3000", []string{}, true)
 	time.Sleep(time.Second)
 	makeNode(":4000", []string{":3000"}, false)

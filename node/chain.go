@@ -10,6 +10,8 @@ import (
 	"github.com/TeamSphere/sphere/types"
 )
 
+const godSeed = "1c01f7de816c1104a9ae1816200719091acabac81d5167b972aa055ef9ad509d"
+
 type HeaderList struct {
 	headers []*proto.Header
 }
@@ -38,13 +40,15 @@ func (list *HeaderList) Len() int {
 }
 
 type Chain struct {
+	txStore    TXStorer
 	blockStore BlockStorer
 	headers    *HeaderList
 }
 
-func NewChain(bs BlockStorer) *Chain {
+func NewChain(bs BlockStorer, txStore TXStorer) *Chain {
 	chain := &Chain{
 		blockStore: bs,
+		txStore:    txStore,
 		headers:    NewHeaderList(),
 	}
 	chain.addBlock(createGenesisBlock())
@@ -65,6 +69,13 @@ func (c *Chain) AddBlock(b *proto.Block) error {
 func (c *Chain) addBlock(b *proto.Block) error {
 	// Add the header to the list of headers.
 	c.headers.Add(b.Header)
+
+	for _, tx := range b.Transactions {
+		fmt.Println("NEW TX: ", hex.EncodeToString(types.HashTransaction(tx)))
+		if err := c.txStore.Put(tx); err != nil {
+			return err
+		}
+	}
 	//validation
 	return c.blockStore.Put(b)
 }
@@ -101,12 +112,27 @@ func (c *Chain) ValidateBlock(b *proto.Block) error {
 }
 
 func createGenesisBlock() *proto.Block {
-	privKey := crypto.GeneratePrivateKey()
+	privKey := crypto.NewPrivateKeyFromSeedStr(godSeed)
+
 	block := &proto.Block{
 		Header: &proto.Header{
 			Version: 1,
 		},
 	}
+
+	tx := &proto.Transaction{
+		Version: 1,
+		Inputs:  []*proto.TxInput{},
+		Outputs: []*proto.TxOutput{
+			{
+				Amount:  1000,
+				Address: privKey.Public().Address().Bytes(),
+			},
+		},
+	}
+
+	block.Transactions = append(block.Transactions, tx)
+
 	types.SignBlock(privKey, block)
 
 	return block
