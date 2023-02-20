@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Style from "../styles/Tokens.module.css";
 import images from "../assets";
-import { AllTokens } from "../Components/index";
+import { AllTokens } from "../components/index";
 
 const Tokens = () => {
     const [allTokenList, setAllTokenList] = useState([
