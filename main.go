@@ -8,7 +8,7 @@ import (
 	"github.com/TeamSphere/sphere/crypto"
 	"github.com/TeamSphere/sphere/node"
 	"github.com/TeamSphere/sphere/proto"
-	"github.com/TeamSphere/sphere/util"
+	"github.com/TeamSphere/sphere/utils"
 	"google.golang.org/grpc"
 )
 
@@ -56,7 +56,7 @@ func makeTransaction() {
 		Version: 1,
 		Inputs: []*proto.TxInput{
 			{
-				PrevTxHash:   util.RandomHash(),
+				PrevTxHash:   utils.RandomHash(),
 				PrevOutIndex: 0,
 				PublicKey:    privKey.Public().Bytes(),
 			},

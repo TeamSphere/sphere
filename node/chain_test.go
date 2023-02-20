@@ -6,14 +6,14 @@ import (
 	"github.com/TeamSphere/sphere/crypto"
 	"github.com/TeamSphere/sphere/proto"
 	"github.com/TeamSphere/sphere/types"
-	"github.com/TeamSphere/sphere/util"
+	"github.com/TeamSphere/sphere/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
 func randomBlock(t *testing.T, chain *Chain) *proto.Block {
 	privKey := crypto.GeneratePrivateKey()
-	b := util.RandomBlock()
+	b := utils.RandomBlock()
 	prevBlock, err := chain.GetBlockByHeight(chain.Height())
 	require.Nil(t, err)
 	b.Header.PrevHash = types.HashBlock(prevBlock)

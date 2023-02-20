@@ -6,7 +6,11 @@ import Style from './NavBar.module.css';
 import images from '../../assets';
 import { Model, TokenList } from '../index';
 
+import { SwapTokenContext } from '../../Context/SwapContext';
+
 const NavBar = () => {
+
+    const { ether, account, networkConnect, connectWallet, tokenData } = useContext(SwapTokenContext);
 
     const menuItems = [
         {
@@ -29,8 +33,6 @@ const NavBar = () => {
 
     const [openModel, setOpenModel] = useState(false);
     const [openTokenBox, setOpenTokenBox] = useState(false);
-    const [account, setAccount] = useState(false);
-
 
   return (
     <div className={Style.NavBar}>
@@ -41,7 +43,7 @@ const NavBar = () => {
                 </div>
                 <div className={Style.NavBar_box_left_menu}>
                     {menuItems.map((el, i) => (
-                        <Link key={i+1} href={{pathname: `${el.name}`, query: `${el.link}`}}>
+                        <Link key={i+1} href={{pathname: `${el.name}`}}>
                             <p className={Style.NavBar_box_left_menu_item}>{el.name}</p>          
                         </Link>
                     ))}
@@ -60,12 +62,12 @@ const NavBar = () => {
                     <div className={Style.NavBar_box_right_box_img}>
                         <Image src={images.ether} alt="Network" height={30} width={30} />
                     </div>
-                    <p>Network Name</p>
+                    <p>{connectWallet}</p>
                 </div>
                 {account ? (
-                    <button onClick={() => setOpenModel(true)}>Connect</button>
+                    <button onClick={() => setOpenTokenBox(true)}>{account.slice(0, 16)}...</button>
                 ) : (
-                    <button onClick={() => setOpenTokenBox(true)}>0xf8123819dqw7897</button>
+                    <button onClick={() => setOpenModel(true)}>Connect</button>
                 )}
 
                 
@@ -77,7 +79,7 @@ const NavBar = () => {
         </div>
 
         {openTokenBox && ( 
-            <TokenList tokenDate="hey" setOpenTokenBox={setOpenTokenBox} />
+            <TokenList tokenData={tokenData} setOpenTokenBox={setOpenTokenBox} />
         )}
     </div>
   )

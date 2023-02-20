@@ -6,7 +6,7 @@ import (
 
 	"github.com/TeamSphere/sphere/crypto"
 	"github.com/TeamSphere/sphere/proto"
-	"github.com/TeamSphere/sphere/util"
+	"github.com/TeamSphere/sphere/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -19,7 +19,7 @@ func TestNewTransaction(t *testing.T) {
 	toAddress := toPrivKey.Public().Address().Bytes()
 
 	input := &proto.TxInput{
-		PrevTxHash:   util.RandomHash(),
+		PrevTxHash:   utils.RandomHash(),
 		PrevOutIndex: 0,
 		PublicKey:    fromPrivKey.Public().Bytes(),
 	}

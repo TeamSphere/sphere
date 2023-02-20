@@ -25,15 +25,15 @@ const Home = () => {
           <p className="already-joined"><span className="number-joined">{numberOfWhitelisted}</span> have already joined</p>
           {renderButton()}
         </div> */}
-        <div class="swap">
+        <div className="swap">
           <HeroSection accounts="hey" tokenData="DATA" />
         </div>
 
-        <Canvas className="blob" camera={{ position: [0,0.0,8.0] }} >
+        {/* <Canvas className="blob" camera={{ position: [0,0.0,8.0] }} >
           <Blob />
-        </Canvas>
+        </Canvas> */}
         
-        <div class="bottom">
+        <div className="bottom">
           <p>© Copyright 2023. All Rights Reserved<br/></p>
         </div>
         <a className="bottom-github" href="https://github.com/TeamSphere/sphere">Made with ❤️ by Team Sphere - View on Github</a>

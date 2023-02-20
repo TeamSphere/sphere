@@ -1,0 +1,213 @@
+
+
+.PoolAdd_box {
+    background-color: #1E1E1E;
+    border-radius: .5rem;
+    padding: 1rem;
+    color: white;
+}
+
+.PoolAdd_box_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PoolAdd_box_header_right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fb8c00;
+}
+
+.PoolAdd_box_price {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #1E1E1E;
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.PoolAdd_box_price_left_token {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.PoolAdd_box_price_left_token_info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fb8c00;
+    border-radius: .5rem;
+    color: #1E1E1E;
+    padding: 0 2rem;
+    font-weight: 700;
+}
+
+.PoolAdd_box_price_left_fee {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    padding: .5rem 1rem;
+    justify-content: space-between;
+    border: 1px solid #fb8c00;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.PoolAdd_box_price_left_fee p {
+    font-size: 0.8rem;
+}
+
+.PoolAdd_box_price_left_fee button {
+    background-color: #fb8c00;
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.PoolAdd_box_price_left_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.PoolAdd_box_price_left_list_item{
+    border: 1px solid #fb8c00;
+    padding: 0.5rem;
+    line-height: 0.8;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.PoolAdd_box_price_left_list_item_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.PoolAdd_box_price_left_list_item_para {
+    background-color: #fb8c00;
+    color: #1E1E1E;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+}
+
+.PoolAdd_box_deposit_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 0;
+    border: 1px solid #fb8c00;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.PoolAdd_box_deposit_box input {
+    width: 50%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #fb8c00;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+.PoolAdd_box_deposit_box_input {
+    background-color: #fb8c00;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    color: #1E1E1E;
+    font-size: 1rem;
+}
+
+.PoolAdd_box_deposit_box_input p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.PoolAdd_box_deposit_box_input p small {
+    background-color: #1E1E1E;
+    color: #fb8c00;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.5rem;
+}
+
+.PoolAdd_box_deposit_box_input_balance {
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    padding-left: 1.4rem;
+}
+
+.PoolAdd_box_price_right_box {
+    text-align: center;
+    line-height: 1;
+    margin-top: 1rem;
+}
+
+.PoolAdd_box_price_right_box_para {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.PoolAdd_box_price_right_range {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.PoolAdd_box_price_right_range_box {
+    border-radius: 0.5rem;
+    border: 1px solid #fb8c00;
+    text-align: center;
+    line-height: 1;
+}
+
+.PoolAdd_box_price_right_range_box_para small {
+    margin-inline: 1rem;
+    background-color: #fb8c00;
+    font-size: 1.2rem;
+    color: #1E1E1E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.PoolAdd_box_price_right_amount,
+.PoolAdd_box_price_right_button {
+    margin-top: 1rem;
+    display: grid;
+}
+
+.PoolAdd_box_price_right_button button {
+    background-color: #fb8c00;
+    border: 0;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.PoolAdd_box_price_right_amount button {
+    background-color: #fb8c00;
+    border: 0;
+    outline: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.token {
+    position: absolute;
+    top: 0rem;
+    right: 32rem;
+}

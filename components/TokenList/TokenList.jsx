@@ -4,8 +4,15 @@ import Image from 'next/image';
 import Style from "./TokenList.module.css";
 import images from "../../assets";
 
-const TokenList = ({ tokenDate, setOpenTokenBox }) => {
-    const data = [1,2,3,4,5,6,7];
+const TokenList = ({ tokenData, setOpenTokenBox }) => {
+    // const data = [1,2,3,4,5,6,7];
+
+    let tokenList = [];
+    for (let i = 0; i < tokenData.length; i++) {
+        if (i % 2 == 1) tokenList.push(tokenData[i]);
+    }
+
+    console.log(tokenData);
   return (
     <div className={Style.TokenList}>
         <p className={Style.TokenList_close} onClick={() => setOpenTokenBox(false)}>
@@ -15,14 +22,14 @@ const TokenList = ({ tokenDate, setOpenTokenBox }) => {
             <h2>Your Token List</h2>
         </div>
 
-        {data.map((el, i) => (
+        {tokenList.map((el, i) => (
             <div className={Style.TokenList_box}>
                 <div className={Style.TokenList_box_info}>
                     <p className={Style.TokenList_box_info_symbol}>
-                        SPH
+                        {el.symbol}
                     </p>
                     <p>
-                        <span>34</span> SPHERE COIN
+                        <span>{el.tokenBalance}</span> {el.name}
                     </p>
                 </div>
             </div>

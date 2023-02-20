@@ -5,14 +5,14 @@ import (
 
 	"github.com/TeamSphere/sphere/crypto"
 	"github.com/TeamSphere/sphere/proto"
-	"github.com/TeamSphere/sphere/util"
+	"github.com/TeamSphere/sphere/utils"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestCalculateRootHash(t *testing.T) {
 	var (
 		privKey = crypto.GeneratePrivateKey()
-		block   = util.RandomBlock()
+		block   = utils.RandomBlock()
 		tx      = &proto.Transaction{
 			Version: 1,
 		}
@@ -27,7 +27,7 @@ func TestCalculateRootHash(t *testing.T) {
 
 func TestSignVerifyBlock(t *testing.T) {
 	var (
-		block   = util.RandomBlock()
+		block   = utils.RandomBlock()
 		privKey = crypto.GeneratePrivateKey()
 		pubKey  = privKey.Public()
 	)
@@ -46,7 +46,7 @@ func TestSignVerifyBlock(t *testing.T) {
 }
 
 func TestHashBlock(t *testing.T) {
-	block := util.RandomBlock()
+	block := utils.RandomBlock()
 	hash := HashBlock(block)
 	assert.Equal(t, 32, len(hash))
 }
