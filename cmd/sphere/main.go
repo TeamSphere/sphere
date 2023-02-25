@@ -8,14 +8,14 @@ import (
 )
 
 func main() {
-	var tbbCmd = &cobra.Command{
-		Use:   "tbb",
-		Short: "The Blockchain Bar CLI",
+	var sphereCmd = &cobra.Command{
+		Use:   "sphere",
+		Short: "The Sphere Blockchain CLI",
 		Run: func(cmd *cobra.Command, args []string) {
 		},
 	}
 
-	tbbCmd.AddCommand(versionCmd)
+	sphereCmd.AddCommand(versionCmd)
 
 	err := tbbCmd.Execute()
 	if err != nil {
