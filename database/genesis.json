@@ -1,0 +1,7 @@
+{
+    "genesis_time": "2023-02-25T13:30:30+00:00",
+    "chain_id": "the-sphere",
+    "balances": {
+        "joe": 1000000
+    }
+}
