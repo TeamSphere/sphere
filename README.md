@@ -38,5 +38,4 @@ We welcome contributions to the Sphere monorepo! If you'd like to contribute, pl
 
 ## License
 
-Sphere is open source software licensed under the [MIT license](LICENSE).
-
+Sphere is open source software licensed under the [Apache 2.0 license](LICENSE).

@@ -29,9 +29,9 @@ const Home = () => {
           <HeroSection accounts="hey" tokenData="DATA" />
         </div>
 
-        {/* <Canvas className="blob" camera={{ position: [0,0.0,8.0] }} >
+        <Canvas className="blob" camera={{ position: [0,0.0,8.0] }} >
           <Blob />
-        </Canvas> */}
+        </Canvas>
         
         <div className="bottom">
           <p>© Copyright 2023. All Rights Reserved<br/></p>
