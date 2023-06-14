@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+  <!-- Header -->
+  <defs>
+    <linearGradient id="headerGradient" gradientTransform="rotate(90)">
+      <stop offset="0%" stop-color="#FF8C00" />
+      <stop offset="100%" stop-color="#FF4500" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1920" height="80" fill="url(#headerGradient)" />
+  <circle cx="80" cy="40" r="30" fill="#FF8C00" />
+  <text x="120" y="55" font-family="Montserrat, sans-serif" font-size="32" fill="#FFFFFF">TheSphere.Online</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="80" width="280" height="1000" fill="#F5F5F5" />
+  <text x="40" y="160" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Home</text>
+  <text x="40" y="220" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Profile</text>
+  <text x="40" y="280" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Messages</text>
+  <text x="40" y="340" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Explore</text>
+  <text x="40" y="400" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Notifications</text>
+  <text x="40" y="460" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">Settings</text>
+  
+  <!-- Main Content -->
+  <rect x="280" y="80" width="1640" height="1000" fill="#FFFFFF" />
+  
+  <!-- Compose Tweet Box -->
+  <rect x="360" y="160" width="1480" height="200" fill="#FFFFFF" stroke="#FF8C00" stroke-width="2" rx="10" ry="10" />
+  <text x="380" y="240" font-family="Montserrat, sans-serif" font-size="24" fill="#000000">What's happening?</text>
+  
+  <!-- Tweet Button -->
+  <rect x="1580" y="240" width="200" height="80" fill="#FF8C00" rx="10" ry="10" />
+  <text x="1680" y="290" font-family="Montserrat, sans-serif" font-size="24" fill="#FFFFFF" text-anchor="middle">Tweet</text>
+  
+  <!-- Tweets -->
+  <rect x="360" y="400" width="1480" height="680" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" rx="10" ry="10" />
+  
+  <!-- Tweet 1 -->
+  <rect x="380" y="440" width="1440" height="200" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" rx="10" ry="10" />
+  <text x="400" y="520" font-family="Montserrat, sans-serif" font-size="20" fill="#000000">User1: Just had an amazing lunch at a new restaurant!</text>
+  
+  <!-- Tweet 2 -->
+  <rect x="380" y="680" width="1440" height="200" fill="#FFFFFF" stroke="#E5E5E5" stroke-width="1" rx="10" ry="10" />
+  <text x="400" y="760" font-family="Montserrat, sans-serif" font-size="20" fill="#000000">User2: Enjoying a beautiful day at the beach!</text>
+  
+  <!-- Footer -->
+  <rect x="0" y="1040" width="1920" height="40" fill="#F5F5F5" />
+  <text x="20" y="1070" font-family="Montserrat, sans-serif" font-size="14" fill="#000000">© 2023 TheSphere.Online. All rights reserved.</text>
+</svg>
