@@ -1,17 +1,18 @@
 package main
 
 import (
-	"net/http"
-
+	"github.com/TeamSphere/sphere/api"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
 	e := echo.New()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Welcome to The Sphere!")
-	})
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
-	e.Logger.Fatal(e.Start(":8080"))
+	api.RegisterRoutes(e)
+
+	e.Start(":8080")
 }
