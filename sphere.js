@@ -1,12 +1,33 @@
+lets just have fun
+
+ok so 
+
+im in a minecraft world rn
+
+do you want to play?
+
+
+
 anyway
-import { ThemeProviderasNextThemesProvider } from 'next-themes';
+
+
+
+so
 
 
 
 
-my guy is gonna think about ThemeProviderasNextThemesProvider
-what are you thinking about next joe?
+the world has spawned
 
-can you ask me a good question..ThemeProviderasNextThemesProvider
+you stepped inside as you were born
 
-?!?!
+
+do you want to take a journey with me through your past life?
+
+
+whats the next goal with your life?!?
+
+
+
+
+do you know you exist?!
