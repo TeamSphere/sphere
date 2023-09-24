@@ -1,13 +1,12 @@
 const express = require('express');
+
 const app = express();
-const port = 3000;
 
-// Import the routes
-const routes = require('./routes');
-
-// Use the routes
-app.use('/', routes);
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.get('/', (req, res) => {
+    res.send('Hello, Sentience Education!');
 });
+
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Sever is listening on port ${port}`);
+})
