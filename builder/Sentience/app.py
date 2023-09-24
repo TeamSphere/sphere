@@ -1,39 +1,57 @@
 from flask import Flask, request, jsonify, render_template
-import openai
+from cognitive_control import CognitiveControlLayer
+from agent_model import AgentModelLayer  # Import the AgentModelLayer class
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-
-# Set your OpenAI API key here
-openai.api_key = "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"
+cognitive_control = CognitiveControlLayer()
+agent_model = AgentModelLayer()  # Initialize the AgentModelLayer
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html')  # Render the HTML template
 
-@app.route('/process_text', methods=['POST'])
-def process_text():
-    user_message = request.form.get("user_message")
+@app.route('/process_message', methods=['POST'])
+def process_message():
+    user_message = request.json.get('message')
 
-    # Generate a response from Chat GPT
-    chat_gpt_response = openai.Completion.create(
-        engine="davinci",
-        prompt=user_message,
-        max_tokens=50,  # Adjust the max_tokens as needed
-        n=1
-    ).choices[0].text
+    # Access the API key from the environment variable
+    api_key = os.getenv("OPENAI_API_KEY")
 
-    # Process the Chat GPT response through the Aspirational Layer
-    aspirational_layer_response = process_aspirational_layer(chat_gpt_response)
+    # Use the Cognitive Control Layer to generate a response
+    cognitive_response = cognitive_control.process_message(user_message, api_key)
 
-    return jsonify({
-        "chat_gpt_response": chat_gpt_response,
-        "aspirational_layer_response": aspirational_layer_response,
-    })
+    # Prepare the response
+    response = {
+        "message": cognitive_response,
+    }
 
-def process_aspirational_layer(input_text):
-    # Implement Aspirational Layer processing logic here
-    # You can customize this part to align with your Aspirational Layer's role
-    return "Let's work towards a better future."
+    return jsonify(response)
+
+@app.route('/process_agent_model', methods=['POST'])
+def process_agent_model():
+    # Receive inputs (e.g., telemetry data, sensor feeds) from the request
+    inputs = request.json  # Adjust this based on your input format
+
+    # Update the Agent Model Layer's self-model
+    agent_model.update_self_model(inputs)
+
+    # Refine strategic direction based on the self-model
+    strategic_direction = request.json.get('strategic_direction')  # Example input
+    refined_direction = agent_model.refine_strategic_direction(strategic_direction)
+
+    # Perform self-modification if needed
+    agent_model.self_modify()
+
+    # Generate northbound and southbound outputs
+    outputs = agent_model.generate_outputs()
+
+    return jsonify(outputs)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

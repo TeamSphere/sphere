@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sphere</title>
+    <title>The Sphere - Sentience</title>
+    <link rel="stylesheet" href="styles.css"> <!-- You can link your custom CSS styles here -->
     <style>
+        /* Add your custom CSS styles here */
         body {
             background-color: black;
             color: white;
@@ -12,96 +14,194 @@
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+
+        header {
+            background-color: #FFA500;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        main {
             padding: 20px;
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .message {
-            background-color: #333;
-            color: white;
+
+        #userMessage {
+            flex: 1;
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-        #user-input {
-            width: 100%;
-            padding: 10px;
+            font-size: 16px;
             border: none;
-            border-bottom: 2px solid #f60;
-            outline: none;
         }
-        #send-btn {
-            background-color: #f60;
+
+        .btn {
+            background-color: #FFA500;
             color: white;
-            border: none;
             padding: 10px 20px;
+            border: none;
             cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #FF8C00;
+        }
+
+        .layer-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .layer {
+            flex: 1;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .layer h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .response {
+            font-size: 16px;
+        }
+
+        .info-box {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            color: #FFA500;
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to The Sphere</h1>
-        <div id="chat-container">
-            <!-- Chat messages will be displayed here -->
+    <header>
+        <h1>Welcome to Sentience</h1>
+        <p>Type your message to start a conversation.</p>
+    </header>
+    <main>
+        <div class="input-container">
+            <input id="userMessage" type="text" placeholder="Enter your message...">
+            <button id="sendMessageButton" class="btn">Send</button>
         </div>
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button id="send-btn">Send</button>
-    </div>
+        <div class="layer-container">
+            <div class="layer">
+                <h2>Cognitive Control Layer</h2>
+                <div id="cognitiveControlResponse" class="response"></div>
+                <div class="info-box">
+                    <h3>What is the Cognitive Control Layer?</h3>
+                    <p>The Cognitive Control Layer is responsible for managing and processing user messages.</p>
+                </div>
+            </div>
+            <div class="layer">
+                <h2>Agent Model Layer</h2>
+                <div id="agentModelResponse" class="response"></div>
+                <div class="info-box">
+                    <h3>What is the Agent Model Layer?</h3>
+                    <p>The Agent Model Layer constructs and maintains a self-model of the agent's capabilities and state.</p>
+                </div>
+            </div>
+            <!-- Add more layers and info boxes as needed -->
+        </div>
+        <!-- Add a new container for the Agent Model Layer -->
+        <div class="input-container">
+            <button id="activateAgentModelButton" class="btn">Activate Agent Model</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 The Sphere</p>
+    </footer>
 
+    <!-- Add your JavaScript for interactions here -->
     <script>
-        const chatContainer = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
-        const sendBtn = document.getElementById('send-btn');
+        // Function to send a message to the server and display the response
+        function sendMessage() {
+            // Get the user's message from the input box
+            const userMessage = document.getElementById('userMessage').value;
 
-        sendBtn.addEventListener('click', () => {
-            sendMessage(userInput.value);
-            userInput.value = '';
-        });
-
-        function sendMessage(message) {
-            // Display user's message
-            displayMessage(message, 'user');
-
-            // Send the message to the server for processing
-            fetch('/process_text', {
+            // Make a POST request to the server's /process_message endpoint
+            fetch('/process_message', {
                 method: 'POST',
-                body: new URLSearchParams({ user_message: message }),
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({ message: userMessage })
             })
             .then(response => response.json())
             .then(data => {
-                // Display Chat GPT response
-                displayMessage(data.chat_gpt_response, 'chat-gpt');
-
-                // Display Aspirational Layer response
-                displayMessage(data.aspirational_layer_response, 'aspirational-layer');
+                // Display the response in the corresponding layer
+                document.getElementById('cognitiveControlResponse').textContent = data.message;
+                // Update other layers as needed
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
 
-        function displayMessage(message, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.textContent = message;
+        // Function to activate the Agent Model Layer and send a request
+        function activateAgentModel() {
+            // Example inputs for the Agent Model Layer (adjust as needed)
+            const agentModelInputs = {
+                telemetryData: { /* telemetry data here */ },
+                sensorFeeds: { /* sensor feeds here */ },
+                strategicDirection: { /* strategic direction here */ }
+            };
 
-            if (sender === 'user') {
-                messageDiv.style.backgroundColor = '#f60';
-            } else if (sender === 'chat-gpt') {
-                messageDiv.style.backgroundColor = '#333';
-            } else if (sender === 'aspirational-layer') {
-                messageDiv.style.backgroundColor = '#ff9900';
-            }
-
-            chatContainer.appendChild(messageDiv);
+            // Make a POST request to the server's /process_agent_model endpoint
+            fetch('/process_agent_model', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(agentModelInputs)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the response in the Agent Model Layer
+                document.getElementById('agentModelResponse').textContent = JSON.stringify(data, null, 2);
+                // Update other layers as needed
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
+
+        // Add event listeners for the "Send" button and "Activate Agent Model" button
+        document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
+        document.getElementById('activateAgentModelButton').addEventListener('click', activateAgentModel);
     </script>
 </body>
 </html>
