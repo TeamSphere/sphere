@@ -1,15 +1,23 @@
 {
-  "name": "sphere",
+  "name": "thesphere",
   "version": "1.0.0",
-  "description": "",
+  "description": "sentience by thesphere",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "client": "cd client && npm start"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.17.1",
+    "web3": "^1.10.0",
+    "openai": "^0.27.0",
+    "tensorflow": "^2.8.5",
+    "preact": "^10.5.13",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+    # Add other dependencies as needed
   }
 }
