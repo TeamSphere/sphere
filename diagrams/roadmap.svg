@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <!-- Brand Logo -->
+  <image x="50" y="50" width="100" height="100" href="the_sphere_logo.png" />
+
+  <!-- Define styles -->
+  <style>
+    .title {
+      font-size: 36px;
+      font-weight: bold;
+      fill: #ff8c00; /* Orange */
+    }
+    .year {
+      font-size: 24px;
+      font-weight: bold;
+      fill: #000; /* Black */
+    }
+    .quarter {
+      font-size: 18px;
+      font-weight: bold;
+      fill: #000; /* Black */
+    }
+    .event {
+      font-size: 16px;
+      fill: #000; /* Black */
+    }
+    .logo {
+      fill: #ff8c00; /* Orange */
+    }
+  </style>
+
+  <!-- 2024 -->
+  <text x="200" y="150" class="title">The Sphere Comprehensive Roadmap (2024-2030)</text>
+
+  <text x="200" y="200" class="year">2024</text>
+
+  <!-- 2024 Events -->
+  <text x="250" y="250" class="quarter">Q1 2024:</text>
+  <text x="270" y="280" class="event">Sentience Education Platform Launch: Beta release of Sentience, our innovative online learning platform.</text>
+
+  <text x="250" y="320" class="quarter">Q2 2024:</text>
+  <text x="270" y="350" class="event">AI-Powered Learning: Integration of AI-driven capabilities for personalized education.</text>
+
+  <text x="250" y="390" class="quarter">Q3 2024:</text>
+  <text x="270" y="420" class="event">Blockchain Integration: Implementing blockchain for tracking progress and rewarding achievements.</text>
+  <text x="270" y="450" class="event">Minecraft Education: Introduction of Minecraft-based interactive learning experiences.</text>
+
+  <text x="250" y="490" class="quarter">Q4 2024:</text>
+  <text x="270" y="520" class="event">Technological Advancements: Exploration of AI frameworks like ACE and ChatDev.</text>
+
+  <!-- 2025 -->
+  <text x="200" y="570" class="year">2025</text>
+
+  <!-- 2025 Events -->
+  <text x="250" y="620" class="quarter">Q1 2025:</text>
+  <text x="270" y="650" class="event">Platform Expansion: Expanding the range of educational topics on Sentience.</text>
+
+  <text x="250" y="690" class="quarter">Q2 2025:</text>
+  <text x="270" y="720" class="event">IoT Projects: Launching various Internet of Things initiatives, small and large.</text>
+  <text x="270" y="750" class="event">Advanced Video Streaming: Continued enhancement of video content delivery.</text>
+
+  <text x="250" y="790" class="quarter">Q3 2025:</text>
+  <text x="270" y="820" class="event">Mechatronics and Robotics: Initiating projects in mechatronics and robotics engineering.</text>
+
+  <text x="250" y="860" class="quarter">Q4 2025:</text>
+  <text x="270" y="890" class="event">Business Growth: Steady expansion, gaining market share.</text>
+
+  <!-- 2026 -->
+  <text x="200" y="940" class="year">2026</text>
+
+  <!-- 2026 Events -->
+  <text x="250" y="990" class="quarter">Q1 2026:</text>
+  <text x="270" y="1020" class="event">AGI Research: Initiating research in Artificial General Intelligence (AGI).</text>
+
+  <text x="250" y="1060" class="quarter">Q2 2026:</text>
+  <text x="270" y="1090" class="event">Tech Advancements: Pioneering technological advancements across sectors.</text>
+
+  <text x="250" y="1130" class="quarter">Q3 2026:</text>
+  <text x="270" y="1160" class="event">PrimePosthumanism Projects: Exploring post-humanist projects.</text>
+
+  <text x="250" y="1200" class="quarter">Q4 2026:</text>
+  <text x="270" y="1230" class="event">Infrastructure Expansion: Expanding infrastructure and resources.</text>
+
+  <!-- 2027 -->
+  <text x="200" y="1280" class="year">2027</text>
+
+  <!-- 2027 Events -->
+  <text x="250" y="1330" class="quarter">Q1 2027:</text>
+  <text x="270" y="1360" class="event">AGI Development: Progressing towards AGI development milestones.</text>
+
+  <text x="250" y="1400" class="quarter">Q2 2027:</text>
+  <text x="270" y="1430" class="event">Robotics Innovation: Breakthroughs in robotics and automation.</text>
+
+  <text x="250" y="1470" class="quarter">Q3 2027:</text>
+  <text x="270" y="1500" class="event">IoT Integration: Deepening IoT integration across industries.</text>
+
+  <text x="250" y="1540" class="quarter">Q4 2027:</text>
+  <text x="270" y="1570" class="event">Education Outreach: Expanding educational programs globally.</text>
+
+  <!-- 2028 -->
+  <text x="200" y="1620" class="year">2028</text>
+
+  <!-- 2028 Events -->
+  <text x="250" y="1670" class="quarter">Q1 2028:</text>
+  <text x="270" y="1700" class="event">AI Integration: Widespread AI integration across daily life.</text>
+
+  <text x="250" y="1740" class="quarter">Q2 2028:</text>
+  <text x="270" y="1770" class="event">Global Dominance: Becoming a major player in tech industries.</text>
+
+  <text x="250" y="1810" class="quarter">Q3 2028:</text>
+  <text x="270" y="1840" class="event">IoT Revolution: Leading the IoT revolution.</text>
+
+  <text x="250" y="1880" class="quarter">Q4 2028:</text>
+  <text x="270" y="1910" class="event">Robotic Workforce: Enhancing industries with robotics.</text>
+
+  <!-- 2029 -->
+  <text x="200" y="1960" class="year">2029</text>
+
+  <!-- 2029 Events -->
+  <text x="250" y="2010" class="quarter">Q1 2029:</text>
+  <text x="270" y="2040" class="event">AGI Advancements: Advancing AGI capabilities.</text>
+
+  <text x="250" y="2080" class="quarter">Q2 2029:</text>
+  <text x="270" y="2110" class="event">Measuring Primoposthumanism: Measuring progress in post-humanist projects.</text>
+
+  <text x="250" y="2150" class="quarter">Q3 2029:</text>
+  <text x="270" y="2180" class="event">IoT Everywhere: IoT ubiquitous in daily life.</text>
+
+  <text x="250" y="2220" class="quarter">Q4 2029:</text>
+  <text x="270" y="2250" class="event">Platform Monopoly: Becoming the dominant tech platform.</text>
+
+  <!-- 2030 -->
+  <text x="200" y="2300" class="year">2030</text>
+
+  <!-- 2030 Events -->
+  <text x="250" y="2350" class="quarter">Q1 2030:</text>
+  <text x="270" y="2380" class="event">AGI by 2030: Achieving Artificial General Intelligence.</text>
+
+  <text x="250" y="2420" class="quarter">Q2 2030:</text>
+  <text x="270" y="2450" class="event">Primoposthumanism Realization: Realizing primoposthumanist projects.</text>
+
+  <text x="250" y="2490" class="quarter">Q3 2030:</text>
+  <text x="270" y="2520" class="event">Complete IoT Integration: IoT seamlessly integrated worldwide.</text>
+
+  <text x="250" y="2560" class="quarter">Q4 2030:</text>
+  <text x="270" y="2590" class="event">The Sphere Dominance: Establishing dominance in the tech industry.</text>
+
+  <!-- Logo -->
+  <circle cx="50" cy="50" r="30" class="logo" />
+  <text x="25" y="60" font-size="16" fill="#fff">theSphere</text>
+</svg>
