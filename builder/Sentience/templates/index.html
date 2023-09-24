@@ -1,16 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sentience GPT-3 Integration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sphere</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .message {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #f60;
+            outline: none;
+        }
+        #send-btn {
+            background-color: #f60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sentience GPT-3 Integration</h1>
-    <form method="POST" action="/generate_text">
-        <label for="api_key">OpenAI API Key:</label>
-        <input type="text" id="api_key" name="api_key" required><br><br>
-        <label for="prompt">Enter your prompt:</label>
-        <textarea id="prompt" name="prompt" rows="4" cols="50" required></textarea><br><br>
-        <input type="submit" value="Generate Text">
-    </form>
+    <div class="container">
+        <h1>Welcome to The Sphere</h1>
+        <div id="chat-container">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-btn">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        sendBtn.addEventListener('click', () => {
+            sendMessage(userInput.value);
+            userInput.value = '';
+        });
+
+        function sendMessage(message) {
+            // Display user's message
+            displayMessage(message, 'user');
+
+            // Send the message to the server for processing
+            fetch('/process_text', {
+                method: 'POST',
+                body: new URLSearchParams({ user_message: message }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display Chat GPT response
+                displayMessage(data.chat_gpt_response, 'chat-gpt');
+
+                // Display Aspirational Layer response
+                displayMessage(data.aspirational_layer_response, 'aspirational-layer');
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function displayMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.textContent = message;
+
+            if (sender === 'user') {
+                messageDiv.style.backgroundColor = '#f60';
+            } else if (sender === 'chat-gpt') {
+                messageDiv.style.backgroundColor = '#333';
+            } else if (sender === 'aspirational-layer') {
+                messageDiv.style.backgroundColor = '#ff9900';
+            }
+
+            chatContainer.appendChild(messageDiv);
+        }
+    </script>
 </body>
 </html>

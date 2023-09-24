@@ -1,0 +1,46 @@
+/* styles.css */
+body {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff9900; /* Orange text for headings */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, textarea, input {
+    margin: 10px 0;
+}
+
+textarea, input.button {
+    background-color: #fff; /* White background */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input.button {
+    background-color: #ff9900; /* Orange button */
+    color: #fff;
+    cursor: pointer;
+}
+
+input.button:hover {
+    background-color: #ffcc66; /* Lighter orange on hover */
+}
