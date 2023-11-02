@@ -1,0 +1,22 @@
+# Binaries, plugins, libs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Output files
+*.out
+
+# Dependency directories
+vendor/
+
+# IDE files
+.idea/
+*.iml
+
+# ENV
+*.env
