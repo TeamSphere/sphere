@@ -19,4 +19,4 @@ vendor/
 *.iml
 
 # ENV
-*.env
+.env
