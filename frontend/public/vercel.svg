@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000" viewBox="0 0 1000 1000">
+  <defs>
+    <clipPath id="clip-Custom_Size_1">
+      <rect width="1000" height="1000"/>
+    </clipPath>
+  </defs>
+  <g id="Custom_Size_1" data-name="Custom Size – 1" clip-path="url(#clip-Custom_Size_1)">
+    <rect width="1000" height="1000" fill="#fff"/>
+    <g id="Group_1" data-name="Group 1">
+      <text id="theSphere" transform="translate(311 556)" fill="#fff" font-size="150" font-family="HelveticaNeue, Helvetica Neue"><tspan x="0" y="0">theSphere</tspan></text>
+      <circle id="Ellipse_1" data-name="Ellipse 1" cx="142.5" cy="142.5" r="142.5" transform="translate(0 358)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

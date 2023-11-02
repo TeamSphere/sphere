@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -16,9 +17,12 @@ func ConnectToDB() (*mongo.Client, error) {
 	password := os.Getenv("MONGODB_PASSWORD")
 	uri := os.Getenv("MONGODB_URI")
 
-	client, err := mongo.NewClient(options.Client().ApplyURI(fmt.Sprintf("mongodb+srv://%s:%s%s", username, password, uri)))
+	client, err := mongo.NewClient(options.Client().ApplyURI(
+		fmt.Sprintf("mongodb+srv://%s:%s@%s", username, password, strings.TrimPrefix(uri, "mongodb+srv://")),
+	))
 	if err != nil {
 		log.Fatal(err)
+		return nil, err
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
@@ -27,6 +31,7 @@ func ConnectToDB() (*mongo.Client, error) {
 	err = client.Connect(ctx)
 	if err != nil {
 		log.Fatal(err)
+		return nil, err
 	}
 
 	return client, nil
