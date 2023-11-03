@@ -14,8 +14,15 @@ func main() {
 	mux.HandleFunc("/api/register", handlers.RegisterHandler)
 	mux.HandleFunc("/api/login", handlers.LoginHandler)
 
+	// Configure CORS
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:3000", "https://sentience.thesphere.online"},
+		AllowCredentials: true,
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+	})
+
 	// Wrap the mux with the cors handler
-	handler := cors.Default().Handler(mux)
+	handler := c.Handler(mux)
 
 	http.ListenAndServe(":8000", handler)
 }
