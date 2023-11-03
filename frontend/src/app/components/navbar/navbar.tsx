@@ -11,7 +11,7 @@ export function Navbar() {
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isRegistering) {
       try {
@@ -24,7 +24,7 @@ export function Navbar() {
     }
   };
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isRegistering) {
       try {
@@ -38,7 +38,7 @@ export function Navbar() {
     }
   };
 
-  const toggleRegistering = () => {
+  const toggleRegistering = (e: React.MouseEvent | any) => {
     setEmail("");
     setPassword("");
     setIsRegistering(!isRegistering);
