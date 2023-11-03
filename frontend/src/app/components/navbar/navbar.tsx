@@ -2,15 +2,14 @@
 
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { Transition } from 'react-transition-group';
 
 export function Navbar() {
-  const { user, login, register, logout } = useContext(AuthContext);
+  const { user, login, register, logout } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -57,7 +56,7 @@ export function Navbar() {
           <div className="hidden md:block">
             { user ? (
               <div className="ml-10 flex items-baseline space-x-4">
-                <span className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{`Hello, ${user.username}`}</span>
+                <span className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{`Hello, ${user}`}</span>
                 <button onClick={logout} className="bg-orange-500 hover:bg-orange-700 text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
               </div>
             ) : (
