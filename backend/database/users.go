@@ -1,15 +1,14 @@
 package database
 
 import (
+	"go.mongodb.org/mongo-driver/bson"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type User struct {
-	Username string
-	Password string // this will be the hashed password
+	Username string `bson:"username"`
+	Password string `bson:"password"` // this will be the hashed password
 }
-
-var users = map[string]*User{}
 
 func AddUser(username, password string) error {
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
@@ -17,20 +16,28 @@ func AddUser(username, password string) error {
 		return err
 	}
 
-	users[username] = &User{
+	collection := client.Database("Sphere").Collection("Users")
+	user := &User{
 		Username: username,
 		Password: string(hashedPassword),
+	}
+	_, err = collection.InsertOne(ctx, user)
+	if err != nil {
+		return err
 	}
 
 	return nil
 }
 
 func ValidateUser(username, password string) bool {
-	user, exists := users[username]
-	if !exists {
+	collection := client.Database("Sphere").Collection("Users")
+
+	var user User
+	err := collection.FindOne(ctx, bson.M{"username": username}).Decode(&user)
+	if err != nil {
 		return false
 	}
 
-	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	return err == nil
 }
