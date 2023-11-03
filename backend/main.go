@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"net/http"
+	"os"
 
 	"github.com/TeamSphere/sphere/backend/api/handlers"
 	"github.com/rs/cors"
@@ -24,5 +27,14 @@ func main() {
 	// Wrap the mux with the cors handler
 	handler := c.Handler(mux)
 
-	http.ListenAndServe(":8000", handler)
+	// Get the port number from the environment so we can run on App Engine
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("Defaulting to port %s", port)
+	}
+
+	// Start the server
+	log.Printf("Listening on port %s", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), handler))
 }
