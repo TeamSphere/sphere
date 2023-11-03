@@ -11,6 +11,24 @@ export const metadata: Metadata = {
   description: 'Created by Team Sphere',
 }
 
+function getTitle(metadata: Metadata): string {
+  if (typeof metadata.title === 'string') {
+    return metadata.title;
+  } else if (metadata.title && 'default' in metadata.title) {
+    return metadata.title.default;
+  } else {
+    return 'Default Title';
+  }
+}
+
+function getDescription(metadata: Metadata): string {
+  if (typeof metadata.description === 'string') {
+    return metadata.description;
+  } else {
+    return 'Default Description';
+  }
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -19,8 +37,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <title>{getTitle(metadata)}</title>
+        <meta name="description" content={getDescription(metadata)} />
         {/* Other head elements */}
       </head>
 
