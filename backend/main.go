@@ -6,16 +6,20 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/TeamSphere/sphere/backend/api/handlers"
+	"github.com/TeamSphere/sphere/backend/api/account"
+	"github.com/TeamSphere/sphere/backend/api/auth"
+	"github.com/TeamSphere/sphere/backend/api/blockchain"
 	"github.com/rs/cors"
 )
 
 func main() {
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/api/account", handlers.AccountHandler)
-	mux.HandleFunc("/api/register", handlers.RegisterHandler)
-	mux.HandleFunc("/api/login", handlers.LoginHandler)
+	mux.HandleFunc("/api/account", account.Handler)
+	mux.HandleFunc("/api/register", auth.RegisterHandler)
+	mux.HandleFunc("/api/login", auth.LoginHandler)
+	mux.HandleFunc("/api/blockchain/new", blockchain.CreateBlockHandler)
+	mux.HandleFunc("/api/blockchain/get", blockchain.GetBlockchainHandler)
 
 	// Configure CORS
 	c := cors.New(cors.Options{
