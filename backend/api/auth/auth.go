@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/TeamSphere/sphere/backend/database"
+	"github.com/TeamSphere/sphere/backend/api/database"
 	"github.com/dgrijalva/jwt-go"
 )
 
